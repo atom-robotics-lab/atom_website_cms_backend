@@ -4,20 +4,19 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const User = require("./models/User");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
+dotenv.config();
+const mongoDBURI = process.env.MONGO_DB_URI || "YOUR_MONGO_DB_URI";
 const salt = bcrypt.genSaltSync(10);
 const secret = "ubwafjfda66452fesnjksbeuwer854";
-mongoose
-  .connect(
-    "mongodb+srv://prakharsharma1535:abhi@cluster0.dh1bmue.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  )
-  .then(console.log("connected to db"));
+mongoose.connect(mongoDBURI).then(console.log("connected to db"));
+console.log(process.env.MONGO_DB_URI);
 app.post("/dashboard/login", async (req, res) => {
   const { username, password } = req.body;
   try {
