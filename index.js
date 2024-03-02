@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 dotenv.config();
-const mongoDBURI = process.env.MONGO_DB_URI || "YOUR_MONGO_DB_URI";
+const mongoDBURI = process.env.MONGO_DB_URI;
 const salt = bcrypt.genSaltSync(10);
 const secret = "ubwafjfda66452fesnjksbeuwer854";
 mongoose.connect(mongoDBURI).then(console.log("connected to db"));
