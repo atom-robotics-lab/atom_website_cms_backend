@@ -8,6 +8,6 @@ const AchievementsSchema = mongoose.Schema({
   cover: String,
 });
 
-const AchievementModel = mongoose.model("Achievement", Achievements);
+const AchievementModel = mongoose.model("Achievement", AchievementsSchema);
 
 module.exports = AchievementModel;
