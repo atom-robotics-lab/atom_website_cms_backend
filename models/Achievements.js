@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const AchievementsSchema = mongoose.Schema({
-  title: String,
-  description: String,
-  teamMember: String,
-  prize: String,
-  cover: String,
+  title: {type: String, required: true},
+  description: {type: String, required: true},
+  teamMember: {type: String, required: true},
+  prize: {type: String, required: true},
+  cover: {type: String, required: true},
 });
 
 const AchievementModel = mongoose.model("Achievement", AchievementsSchema);

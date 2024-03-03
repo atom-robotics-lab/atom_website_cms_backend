@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
