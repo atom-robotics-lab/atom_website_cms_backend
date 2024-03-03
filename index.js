@@ -17,7 +17,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = "ubwafjfda66452fesnjksbeuwer854";
 mongoose.connect(mongoDBURI).then(console.log("connected to db"));
 // console.log(process.env.MONGO_DB_URI);
-app.post("/dashboard/login", async (req, res) => {
+app.post("/dashboard/register", async (req, res) => {
   const { username, password } = req.body;
   try {
     const userDoc = await User.create({
@@ -31,7 +31,7 @@ app.post("/dashboard/login", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/dashboard/login", async (req, res) => {
   const { username, password } = req.body;
   const userDoc = await User.findOne({ username });
   const passOk = bcrypt.compareSync(password, userDoc.password);
